@@ -160,6 +160,3 @@ dependencies:
     - numpy==1.21.5
     - pillow==9.0.1
     - typing-extensions==4.1.1
-variables:
-  LD_LIBRARY_PATH: /usr/local/pkgs/cuda/latest/lib64:/home/ml/users/salver/.mujoco/mujoco210/bin:/usr/lib/nvidia-460:/usr/lib/nvidia
-prefix: /home/ml/users/salver/.conda/envs/COMP579_project
