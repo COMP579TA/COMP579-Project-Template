@@ -30,7 +30,7 @@ fill this part
 ```
 
 ### Google Colab
-_A section for google colab?_
+_A section for google colab? Is it possible to train this on Google colab maintaining the venv and code structure?_
 
 ## Add us as colaborator to your private git repo
 After creating you own _private_ git repository with this template, add this github account as a collaborator. We will be using this account to pull the submission folder from your repository every time we refresh the leaderboard.
