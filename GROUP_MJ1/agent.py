@@ -6,14 +6,14 @@ class Agent():
      want to this class.
   '''
 
-  def __init__(self, env):
-    self.env = env
+  def __init__(self, env_specs):
+    self.env_specs = env_specs
 
   def load_weights(self):
     pass
 
   def act(self, curr_obs, mode='eval'):
-    return self.env.action_space.sample()
+    return self.env_specs['action_space'].sample()
 
   def update(self, curr_obs, action, reward, next_obs, done, timestep):
     pass

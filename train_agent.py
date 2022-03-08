@@ -93,8 +93,12 @@ if __name__ == '__main__':
   env_type = lines[0].lower()
 
   env = get_environment(env_type) 
+  if 'jellybean' in env_type:
+    env_specs = {'scent_space': env.scent_space, 'vision_space': env.vision_space, 'feature_space': env.feature_space, 'action_space': env.action_space}
+  if 'mujoco' in env_type:
+    env_specs = {'observation_space': env.observation_space, 'action_space': env.action_space}
   agent_module = importlib.import_module(args.group+'.agent')
-  agent = agent_module.Agent(env)
+  agent = agent_module.Agent(env_specs)
   
   total_timesteps = 2000000
   evaluation_freq = 1000
