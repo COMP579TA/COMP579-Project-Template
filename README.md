@@ -9,12 +9,19 @@ conda env create environment.yml -n my-venv
 conda activate my-venv
 ```
 
-## Mujoco Installation
+## Domain 1: Mujoco 
+MuJoCo is a general purpose physics engine that aims to facilitate research and development in robotics. It stands for Multi-Joint dynamics with contact. Mujoco has different environments from which we use Hopper. 
+Hopper has a  11-dimensional state space, that is position and velocity of each joint. The initial states are uniformly randomized. The action is a 3-dimensional continuous space. This environment is terminated when the agent falls down.
+
+![Hopper environment](figures/mujoco/hopper.jpg?raw=true "Hopper environment")
+
+
+### Mujoco Installation
 We'll be using mujoco210 in this project. This page contains the mujoco210 releases:
 https://github.com/deepmind/mujoco/releases/tag/2.1.0
 Download the distribution compatible to your OS and unzip it inside ~/.mujoco/
  
-### GPU Machines
+#### GPU Machines
 After activating the virtual environment, change the environment variable as:
 ```
 conda env config vars set LD_LIBRARY_PATH=/usr/local/pkgs/cuda/latest/lib64:$HOME/.mujoco/mujoco210/bin:/usr/lib/nvidia-460:/usr/lib/nvidia
@@ -22,20 +29,31 @@ conda env config vars set LD_LIBRARY_PATH=/usr/local/pkgs/cuda/latest/lib64:$HOM
 
 Note that the GPU driver `nvidia-460` is only applicable for machines with GPUs and is machine specific.
 
-### CPU Machines
+#### CPU Machines
 For installing mujoco on a CPU only machine do this:
 
 ```
 fill this part
 ```
 
-### Google Colab
+#### Google Colab
 _A section for google colab? Is it possible to train this on Google colab maintaining the venv and code structure?_
 
+Install the required packages to run mujoco environment 
+```
+!apt-get install -y \
+    libgl1-mesa-dev \
+    libgl1-mesa-glx \
+    libglew-dev \
+    libosmesa6-dev \
+    software-properties-common
+
+!apt-get install -y patchelf
+```
 ## Training the agent
 The agent can be trained by running `python3 train_agent.py --group GROUP_MJ1`
 
-## Jellybean world
+## Domain 2: Jellybean world
 ### Environment description
 [Jelly bean world](https://arxiv.org/pdf/2002.06306.pdf) is a testbed that provides infinite 2D gridworlds with objects in it to test continual learning agents. For this project, you are given a custom jelly bean environment which has 4 different kinds of objects - Apples, Bananas, Jelly beans, and Truffles. These objects are distributed throughout the grid according to an unknown probability distribution. Some of these objects appear together, for instance, Apples and Truffles are always together. Some objects appear in clusters, for example, Apples and Jelly beans appear in seperate clusters, while some objects, like bananas, are uniformly distributed. Although the original aim of this environment is to train a continual learning RL agent (an RL agent that continually learns in the changing world) in an infinite world, for simplicity, you will be working in a traditional episodic setting. Each episode has `5000` timesteps in this task and your job is to train an RL agent that can gather as many rewards as it can in an episode. Rewards are obtained by collecting various objects in the environment:
 
