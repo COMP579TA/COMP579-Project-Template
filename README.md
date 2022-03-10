@@ -14,7 +14,6 @@ MuJoCo is a general purpose physics engine that aims to facilitate research and 
 Hopper has a  11-dimensional state space, that is position and velocity of each joint. The initial states are uniformly randomized. The action is a 3-dimensional continuous space. This environment is terminated when the agent falls down. 
 
 
-
 ### Mujoco Installation
 We'll be using mujoco210 in this project. This page contains the mujoco210 releases:
 https://github.com/deepmind/mujoco/releases/tag/2.1.0
@@ -49,6 +48,11 @@ Install the required packages to run mujoco environment
 
 !apt-get install -y patchelf
 ```
+```
+!pip3 install gym
+!pip install free-mujoco-py
+```
+
 ## Training the agent
 The agent can be trained by running `python3 train_agent.py --group GROUP_MJ1`
 
