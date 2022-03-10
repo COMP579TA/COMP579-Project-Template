@@ -10,10 +10,9 @@ conda activate my-venv
 ```
 
 ## Domain 1: Mujoco 
-MuJoCo is a general purpose physics engine that aims to facilitate research and development in robotics. It stands for Multi-Joint dynamics with contact. Mujoco has different environments from which we use Hopper. 
-Hopper has a  11-dimensional state space, that is position and velocity of each joint. The initial states are uniformly randomized. The action is a 3-dimensional continuous space. This environment is terminated when the agent falls down.
+MuJoCo is a general purpose physics engine that aims to facilitate research and development in robotics. It stands for Multi-Joint dynamics with contact. Mujoco has different environments from which we use (Hopper)[https://gym.openai.com/envs/Hopper-v2/]. 
+Hopper has a  11-dimensional state space, that is position and velocity of each joint. The initial states are uniformly randomized. The action is a 3-dimensional continuous space. This environment is terminated when the agent falls down. 
 
-![Hopper environment](figures/mujoco/hopper.jpg?raw=true "Hopper environment")
 
 
 ### Mujoco Installation
