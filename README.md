@@ -57,7 +57,9 @@ You can check the following notebook for further info: https://colab.research.go
 The agent can be trained by running `python3 train_agent.py --group GROUP_MJ1`
 
 ## Domain 2: Jellybean world
-![alt text](imgs/jb.png)
+<p align="center">
+  <img src="imgs/jb.png" width="600" height="300" />
+</p>
 
 ### Environment description
 [Jelly bean world](https://arxiv.org/pdf/2002.06306.pdf) is a testbed that provides infinite 2D gridworlds with objects in it to test continual learning agents. For this project, you are given a custom jelly bean environment which has 4 different kinds of objects - Apples, Bananas, Jelly beans, and Truffles. These objects are distributed throughout the grid according to an unknown probability distribution. Some of these objects appear together, for instance, Apples and Truffles are always together. Some objects appear in clusters, for example, Apples and Jelly beans appear in seperate clusters, while some objects, like bananas, are uniformly distributed. Although the original aim of this environment is to train a continual learning RL agent (an RL agent that continually learns in the changing world) in an infinite world, for simplicity, you will be working in a traditional episodic setting. Each episode has `5000` timesteps in this task and your job is to train an RL agent that can gather as many rewards as it can in an episode. Rewards are obtained by collecting various objects in the environment:
