@@ -8,6 +8,8 @@ cd COMP579-Project-Template
 conda env create environment.yml -n my-venv
 conda activate my-venv
 ```
+## Training the agent
+The agent can be trained by running `python3 train_agent.py --group GROUP_MJ1`
 
 ## Domain 1: Mujoco 
 MuJoCo is a general purpose physics engine that aims to facilitate research and development in robotics. It stands for Multi-Joint dynamics with contact. Mujoco has different environments from which we use (Hopper)[https://gym.openai.com/envs/Hopper-v2/]. 
@@ -52,9 +54,6 @@ Install the required packages to run mujoco environment
 !pip install free-mujoco-py
 ```
 You can check the following notebook for further info: https://colab.research.google.com/drive/1Zmr96imxqHnbauXf8KbzKgwuF7TROc9F?usp=sharing 
-
-## Training the agent
-The agent can be trained by running `python3 train_agent.py --group GROUP_MJ1`
 
 ## Domain 2: Jellybean world
 <p align="center">
