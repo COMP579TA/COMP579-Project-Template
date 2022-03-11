@@ -43,6 +43,15 @@ fill this part
 
 #### Google Colab
 
+Clone your repository and create a conda environment: 
+
+```
+!git clone https://github.com/COMP579TA/COMP579-Project-Template
+!cd COMP579-Project-Template
+!conda env create environment.yml -n my-venv
+!conda activate my-venv
+```
+
 Install the required packages to run mujoco environment 
 ```
 !apt-get install -y \
