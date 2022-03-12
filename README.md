@@ -35,11 +35,12 @@ conda env config vars set LD_LIBRARY_PATH=/usr/local/pkgs/cuda/latest/lib64:$HOM
 Note that the GPU driver `nvidia-460` is only applicable for machines with GPUs and is machine specific.
 
 #### CPU Machines
-For installing mujoco on a CPU only machine do this:
+For installing mujoco on a CPU only machine do as follows:
+1- Create the conda environment using ```conda create --name mujoco --file environment.yml```
+2- Set the conda environment variable to: ```LD_LIBRARY_PATH=/usr/local/pkgs/cuda/latest/lib64:$HOME/.mujoco/mujoco210/bin:/usr/lib/nvidia```
+3- You can change the conda environment variable using ```conda env config vars set ```. If this command doesn't work in your setting, you can follow this [solution](https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html#macos-and-linux). 
 
-```
-fill this part
-```
+
 
 #### Google Colab
 
