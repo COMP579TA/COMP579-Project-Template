@@ -40,8 +40,7 @@ For installing mujoco on a CPU only machine do as follows:
 
 2. Set the conda environment variable to: ```LD_LIBRARY_PATH=/usr/local/pkgs/cuda/latest/lib64:$HOME/.mujoco/mujoco210/bin:/usr/lib/nvidia```.
 
-3. You can change the conda environment variable using ```conda env config vars set ```. If this command doesn't work in your setting, you can follow this [solution](https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html#macos-and-linux). 
-
+3. You can change the conda environment variable using ```conda env config vars set LD_LIBRARY_PATH=...```. If this command doesn't work in your setting, you can follow this [solution](https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html#macos-and-linux). 
 
 
 #### Google Colab
@@ -71,6 +70,9 @@ Install the required packages to run mujoco environment
 !pip install free-mujoco-py
 ```
 You can check the following notebook for further info: https://colab.research.google.com/drive/1Zmr96imxqHnbauXf8KbzKgwuF7TROc9F?usp=sharing 
+
+Once you are done with training the agent, please copy-paste the code and manually create an ```agent.py``` file and ```env_info.txt``` and upload it to your group folder.
+
 
 ## Domain 2: Jellybean world
 <p align="center">
