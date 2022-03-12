@@ -24,7 +24,7 @@ Hopper has a  11-dimensional state space, that is position and velocity of each 
 ### Mujoco Installation
 We'll be using mujoco210 in this project. This page contains the mujoco210 releases:
 https://github.com/deepmind/mujoco/releases/tag/2.1.0
-Download the distribution compatible to your OS and unzip it inside ~/.mujoco/
+Download the distribution compatible to your OS and extract the downloaded ```mujoco210``` directory into ```~/.mujoco/```.
  
 #### GPU Machines
 After activating the virtual environment, change the environment variable as:
