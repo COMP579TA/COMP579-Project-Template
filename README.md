@@ -2,14 +2,16 @@
 ## Virtual Environment
 Create a virtual environment with the dependencies found in `environment.yml`. 
 
-Note that this environment contains a cudatoolkit of version 10.2.89. Thus, you may have to uninstall and then reinstall it depending on your cuda version. 
-
 ```
 git clone https://github.com/COMP579TA/COMP579-Project-Template
 cd COMP579-Project-Template
 conda env create environment.yml -n my-venv
 conda activate my-venv
 ```
+
+Note that this environment contains a cudatoolkit of version 10.2.89. Thus, you may have to uninstall and then reinstall it depending on your cuda version. 
+
+
 ## Training the agent
 The agent can be trained by running `python3 train_agent.py --group GROUP_MJ1`
 
