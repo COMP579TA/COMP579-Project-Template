@@ -9,7 +9,7 @@ conda env create environment.yml -n my-venv
 conda activate my-venv
 ```
 
-Note that this environment contains a cudatoolkit of version 10.2.89. Thus, you may have to uninstall and then reinstall it depending on your cuda version. 
+Note that this environment contains a cudatoolkit of version 10.2.89. Thus, you may have to uninstall and then reinstall it depending on your cuda version in the case that you are using GPUs. 
 
 
 ## Training the agent
