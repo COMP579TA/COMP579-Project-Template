@@ -35,16 +35,17 @@ def evaluate_agent(agent, env, n_episodes_to_evaluate):
 def get_environment(env_type):
   '''Generates an environment specific to the agent type.'''
   if 'jellybean' in env_type:
-    env = JellyBeanEnv(gym.make('Hopper-v2'))
+    env = JellyBeanEnv(gym.make('JBW-COMP579-obj-v1'))
   elif 'mujoco' in env_type:
     env = MujocoEnv(gym.make('Hopper-v2'))
   else:
-    raise Exception("ERROR: Please define your agent_type to be either a 'JellyBeanAgent' or a 'MujocoAgent'!")
+    raise Exception("ERROR: Please define your env_type to be either 'jellybean' or 'mujoco'!")
   return env
 
 
 def train_agent(agent,
                 env,
+                env_eval,
                 total_timesteps,
                 evaluation_freq,
                 n_episodes_to_evaluate):
@@ -54,6 +55,10 @@ def train_agent(agent,
   np.random.seed(seed)
   torch.manual_seed(seed)
   tf.random.set_seed(seed)
+  env.seed(seed)
+  
+  torch.backends.cudnn.deterministic = True
+  torch.backends.cudnn.benchmark = False 
 
   timestep = 0
   array_of_mean_acc_rewards = []
@@ -70,7 +75,7 @@ def train_agent(agent,
         
       timestep += 1
       if timestep % evaluation_freq == 0:
-        mean_acc_rewards = evaluate_agent(agent, env, n_episodes_to_evaluate)
+        mean_acc_rewards = evaluate_agent(agent, env_eval, n_episodes_to_evaluate)
         print('timestep: {ts}, acc_reward: {acr:.2f}'.format(ts=timestep, acr=mean_acc_rewards))
         array_of_mean_acc_rewards.append(mean_acc_rewards)
 
@@ -86,6 +91,7 @@ if __name__ == '__main__':
   path = './'+args.group+'/'
   files = [f for f in listdir(path) if isfile(join(path, f))]
   if ('agent.py' not in files) or ('env_info.txt' not in files):
+    print("Your GROUP folder does not contain agent.py or env_info.txt!")
     exit()
 
   with open(path+'env_info.txt') as f:
@@ -93,6 +99,7 @@ if __name__ == '__main__':
   env_type = lines[0].lower()
 
   env = get_environment(env_type) 
+  env_eval = get_environment(env_type)
   if 'jellybean' in env_type:
     env_specs = {'scent_space': env.scent_space, 'vision_space': env.vision_space, 'feature_space': env.feature_space, 'action_space': env.action_space}
   if 'mujoco' in env_type:
@@ -100,9 +107,10 @@ if __name__ == '__main__':
   agent_module = importlib.import_module(args.group+'.agent')
   agent = agent_module.Agent(env_specs)
   
+  # Note these can be environment specific and you are free to experiment with what works best for you
   total_timesteps = 2000000
   evaluation_freq = 1000
   n_episodes_to_evaluate = 20
 
-  learning_curve = train_agent(agent, env, total_timesteps, evaluation_freq, n_episodes_to_evaluate)
+  learning_curve = train_agent(agent, env, env_eval, total_timesteps, evaluation_freq, n_episodes_to_evaluate)
 
