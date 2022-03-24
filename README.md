@@ -13,7 +13,7 @@ Note that this environment contains a cudatoolkit of version 10.2.89. Thus, you 
 
 
 ## Training the agent
-Assuming that you have group name as `GROUP_XXX`, the agent can be trained by running `python3 train_agent.py --group GROUP_XXX`. For example, for the group `GROUP_MJ1`, it can be trained as `python3 train_agent.py --group GROUP_MJ1`.
+Assuming that you have group name as `GROUP_XXX`, after filling up the `Agent` class in `GROUP_XXX/agent.py`, your agent can be trained by running `python3 train_agent.py --group GROUP_XXX`. For example, for the group `GROUP_MJ1`, it can be trained as `python3 train_agent.py --group GROUP_MJ1`.
 
 ## Domain 1: Mujoco 
 
