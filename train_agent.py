@@ -56,6 +56,7 @@ def train_agent(agent,
   torch.manual_seed(seed)
   tf.random.set_seed(seed)
   env.seed(seed)
+  env_eval.seed(seed)
   
   torch.backends.cudnn.deterministic = True
   torch.backends.cudnn.benchmark = False 
