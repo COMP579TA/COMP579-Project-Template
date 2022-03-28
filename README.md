@@ -73,7 +73,8 @@ Install the required packages to run mujoco environment
 !pip3 install gym
 !pip install free-mujoco-py
 ```
-You can check the following notebook for further info: https://colab.research.google.com/drive/1Zmr96imxqHnbauXf8KbzKgwuF7TROc9F?usp=sharing 
+You can check the following notebook for further info: https://colab.research.google.com/drive/1Zmr96imxqHnbauXf8KbzKgwuF7TROc9F?usp=sharing
+
 
 Once you are done with training the agent, please copy-paste the code and manually create an ```agent.py``` file and ```env_info.txt``` and upload it to your group folder.
 
