@@ -318,3 +318,44 @@ class GrayScaleObservation(ObservationWrapper):
 	def get_feature(self, feature):
 		return feature
 ```
+
+4. Running jbw on colab:
+It is not recommended to run jbw on colab because some things can break and we can't fix all of them. But you can follow below instructions to run it anyways.
+
+``` python
+from IPython.display import clear_output
+
+!pip3 install gym
+clear_output()
+
+!rm -rf jelly-bean-world/ || true
+!git clone https://github.com/NishanthVAnand/jelly-bean-world.git
+clear_output()
+
+%cd jelly-bean-world/
+clear_output()
+
+!rm -rf jbw/deps/core
+!git rm jbw/deps/core
+!git submodule add https://github.com/asaparov/core.git jbw/deps/core
+clear_output()
+
+!rm -rf jbw/deps/math
+!git rm jbw/deps/math
+!git submodule add https://github.com/asaparov/math.git jbw/deps/math
+clear_output()
+
+!git submodule update --init --recursive
+
+%cd api/python/
+!python setup.py install
+clear_output()
+
+%cd ../../..
+
+import jbw
+import gym
+
+env = gym.make("JBW-COMP579-obj-v1")
+curr_obs = env.reset()
+```
