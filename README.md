@@ -319,8 +319,8 @@ class GrayScaleObservation(ObservationWrapper):
 		return feature
 ```
 
-4. Running jbw on colab:
-It is not recommended to run jbw on colab because some things can break and we can't fix all of them. But you can follow below instructions to run it anyways.
+4. Running `jbw` on colab:
+It is not recommended to run `jbw` on colab because some things can break and we can't fix all of them. But you can follow below instructions to run it anyways.
 
 ``` python
 from IPython.display import clear_output
