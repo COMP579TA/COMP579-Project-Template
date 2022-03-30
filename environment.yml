@@ -188,7 +188,6 @@ dependencies:
     - gym==0.22.0
     - gym-notices==0.0.5
     - imageio==2.16.1
-    - jbw==1.0
     - monotonic==1.6
     - mujoco-py==2.1.2.14
     - numpy==1.21.5
