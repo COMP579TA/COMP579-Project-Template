@@ -10,7 +10,7 @@ class JellyBeanEnv(gym.Wrapper):
     self.env = env
 
   def reset(self):
-    self.env.reset()
+    return self.env.reset()
 
   def step(self, action):
     next_obs, reward, done, info = self.env.step(action)
